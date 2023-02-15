@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript 
+date_updated = "2023-02-13" # hardcoded for now
 
 pkg_list = list.files(path = "../uncompressed-R-packages")
 
@@ -11,6 +12,8 @@ pkg_list = list.files(path = "../uncompressed-R-packages")
 
 package_data = list()
 
+null_data_sets = 0 # count the number of packages that are null
+
 for(p in 1:length(pkg_list)){
     
     # print names of data files associated with each package
@@ -20,6 +23,7 @@ for(p in 1:length(pkg_list)){
     data_files <- sub(".txt.gz", "", c(data_files) )
     data_files <- sub(".csv", "", c(data_files) )
     data_files <- sub(".tab.gz", "", c(data_files) )
+    data_files <- sub(".R", "", c(data_files) )
     
     # print( length(data_files) ) # how many data sets exist in particular pkg?
     reps = length(data_files)
@@ -28,6 +32,7 @@ for(p in 1:length(pkg_list)){
     if(reps == 0){
         reps = 1
         data_files = "null"
+        null_data_sets = null_data_sets + 1
     } 
 
     # create relationship between package and data sets
@@ -36,12 +41,21 @@ for(p in 1:length(pkg_list)){
 }
 
 # Put all packages together 
-all_data = do.call(rbind, package_data)
-colnames(all_data) = c("package", "data_set")
+pkg_data = do.call(rbind, package_data)
+colnames(pkg_data) = c("package", "data_set")
 
 # write csv for inspection purposes
-write.csv(all_data, "all_data.csv", row.names = FALSE)
+write.csv(pkg_data, "pkg_data.csv", row.names = FALSE)
 
 # measure length of unique values
-length(unique(all_data$package)) # only about 8,000 or so of these have associated data
-length(unique(all_data$data_set))
+length(unique(pkg_data$package)) # only about 8,000 or so of these have associated data
+length(unique(pkg_data$data_set)) # <--- Number of uniquely named datasets, including null
+length(unique(pkg_data$data_set)) - null_data_sets # Number of non-null packages (around 28,000)
+print(null_data_sets) # <--- number of packages with no data (around 10,000)
+
+# Write packages table
+
+# Write datasets table
+
+# Create numeric joins table 
+
