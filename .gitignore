@@ -48,8 +48,11 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+# R packages to ignore
 *.csv
 
 *.tar.gz
 
-*packages*
+uncompressed-R-packages
+
+
