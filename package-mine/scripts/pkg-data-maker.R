@@ -18,12 +18,12 @@ for(p in 1:length(pkg_list)){
     
     # print names of data files associated with each package
     data_files <- list.files(path = paste0("../uncompressed-R-packages/", pkg_list[[p]], "/data")) # example_idx
-    data_files <- sub(".rda", "", c(data_files) ) 
-    data_files <- sub(".RData", "", c(data_files) )
-    data_files <- sub(".txt.gz", "", c(data_files) )
-    data_files <- sub(".csv", "", c(data_files) )
-    data_files <- sub(".tab.gz", "", c(data_files) )
-    data_files <- sub(".R", "", c(data_files) )
+    data_files <- sub(".rda", "", c(data_files), fixed = TRUE) 
+    data_files <- sub(".RData", "", c(data_files), fixed = TRUE )
+    data_files <- sub(".txt.gz", "", c(data_files), fixed = TRUE )
+    data_files <- sub(".csv", "", c(data_files), fixed = TRUE )
+    data_files <- sub(".tab.gz", "", c(data_files), fixed = TRUE )
+    data_files <- sub(".R", "", c(data_files), fixed = TRUE )
     
     # print( length(data_files) ) # how many data sets exist in particular pkg?
     reps = length(data_files)
@@ -48,6 +48,8 @@ colnames(pkg_data) = c("package", "data_set")
 pkg_data$data_set[pkg_data$data_set == ""] = "null"
 
 # write csv for inspection purposes
+pkg_data = as.data.frame(pkg_data)
+pkg_data =  pkg_data[order(pkg_data$data_set), ]
 write.csv(pkg_data, "pkg_data.csv", row.names = FALSE)
 
 # measure length of unique values
