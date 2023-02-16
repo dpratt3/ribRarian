@@ -55,5 +55,5 @@ write.csv(only_keys, "../../seed-data/pkg_data_joins.csv", row.names = FALSE)
 
 # write only table of datasets
 only_data = all_keys[, c("data_set", "data_key", "user_id")]
-write.csv(only_keys, "../../seed-data/data_keys.csv", row.names = FALSE)
+write.csv(only_data, "../../seed-data/data_keys.csv", row.names = FALSE)
 
