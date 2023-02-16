@@ -44,6 +44,9 @@ for(p in 1:length(pkg_list)){
 pkg_data = do.call(rbind, package_data)
 colnames(pkg_data) = c("package", "data_set")
 
+# make sure all empty values are coded to null
+pkg_data$data_set[pkg_data$data_set == ""] = "null"
+
 # write csv for inspection purposes
 write.csv(pkg_data, "pkg_data.csv", row.names = FALSE)
 
