@@ -49,8 +49,14 @@ all_keys[all_keys$data_set == "housing", ]
 # write joins table with rows as an EXAMPLE only
 write.csv(all_keys, "../../seed-data/all_keys_verbose.csv", row.names = F)
 
-# write joins table with only the numeric indicators
+# write joins table with only the numeric indicators AND the dataset name (added recently)
+pkg_names = paste0(pkg_data$package, "-", pkg_data$data_set)
+
 only_keys = all_keys[, c("pkg_key", "data_key")]
+only_keys = cbind.data.frame(only_keys, pkg_names)
+
+colnames(only_keys) = c("pkg_key", "data_key", "table_name")
+
 write.csv(only_keys, "../../seed-data/pkg_data_joins.csv", row.names = FALSE)
 
 # write only table of datasets
