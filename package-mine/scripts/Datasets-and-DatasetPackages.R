@@ -57,7 +57,7 @@ only_keys = cbind.data.frame(only_keys, pkg_names)
 
 colnames(only_keys) = c("pkg_key", "data_key", "table_name")
 
-write.csv(only_keys, "../../seed-data/pkg_data_joins.csv", row.names = FALSE)
+write.csv(only_keys, "../../seed-data/DatasetPackages.csv", row.names = FALSE)
 
 # write only table of datasets
 only_data = all_keys[, c("data_set", "data_key", "user_id")]
@@ -70,5 +70,5 @@ colnames(only_data) = c("name", "data_key", "user_id", "date_modified")
 # Remove data key since it is now redundant due to unique function
 only_data = subset(only_data, select = -c(data_key))
 
-write.csv(unique(only_data), "../../seed-data/DatasetPackages.csv", row.names = FALSE)
+write.csv(unique(only_data), "../../seed-data/Datasets.csv", row.names = FALSE)
 

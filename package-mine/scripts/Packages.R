@@ -39,6 +39,3 @@ user_id = rep(0, length(only_pkgs))
 linked_packages = cbind.data.frame(only_pkgs, links, date_modified, user_id)
 colnames(linked_packages) = c("packages", "links", "date_modified", "user_id")
 write.csv(linked_packages, "../../seed-data/Packages.csv", row.names = FALSE)
-
-
-
