@@ -55,5 +55,11 @@ write.csv(only_keys, "../../seed-data/pkg_data_joins.csv", row.names = FALSE)
 
 # write only table of datasets
 only_data = all_keys[, c("data_set", "data_key", "user_id")]
+# add date updated
+date_modified = "2023-02-13"
+reps = dim(only_data)[[1]]
+only_data = cbind.data.frame(only_data, rep(date_modified, reps))
+colnames(only_data) = c("data_set", "data_key", "user_id", "date_modified")
+
 write.csv(only_data, "../../seed-data/data_keys.csv", row.names = FALSE)
 
