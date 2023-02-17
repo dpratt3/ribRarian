@@ -67,5 +67,8 @@ reps = dim(only_data)[[1]]
 only_data = cbind.data.frame(only_data, rep(date_modified, reps))
 colnames(only_data) = c("name", "data_key", "user_id", "date_modified")
 
-write.csv(unique(only_data), "../../seed-data/datasets.csv", row.names = FALSE)
+# Remove data key since it is now redundant due to unique function
+only_data = subset(only_data, select = -c(data_key))
+
+write.csv(unique(only_data), "../../seed-data/DatasetPackages.csv", row.names = FALSE)
 
