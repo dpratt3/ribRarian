@@ -57,6 +57,11 @@ only_keys = cbind.data.frame(only_keys, pkg_names)
 
 colnames(only_keys) = c("pkg_key", "data_key", "table_name")
 
+# Add seed user key
+user_id = rep(0, dim(only_keys)[[1]]) # user ID of 0 is the CRAN
+only_keys$user_id = user_id
+
+
 write.csv(only_keys, "../../seed-data/DatasetPackages.csv", row.names = FALSE)
 
 # write only table of datasets
