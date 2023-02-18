@@ -7,8 +7,8 @@ from .db import add_prefix_for_prod
 class DatasetPackage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    pkg_id = db.Column(db.Integer, db.ForeignKey('package.id'), nullable=False)
-    data_id = db.Column(db.Integer, db.ForeignKey('dataset.id'), nullable=False)
+    pkg_key = db.Column(db.Integer, db.ForeignKey('package.id'), nullable=False)
+    data_key = db.Column(db.Integer, db.ForeignKey('dataset.id'), nullable=False)
     table_name = db.Column(db.String(50))
     
     user = db.relationship('User', backref=db.backref('datasetpackage', lazy=True))
@@ -19,14 +19,14 @@ class DatasetPackage(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-            "pkg_id": self.pkg_id,
-            "data_id": self.data_id,
+            "pkg_key": self.pkg_key,
+            "data_key": self.data_key,
             "table_name": self.table_name
         }
 
 class Package(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
+    name = db.Column(db.String(255))
     links = db.Column(db.String(255))
     date_modified = db.Column(db.String(20))
     

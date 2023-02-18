@@ -7,20 +7,11 @@ import pandas as pd
 os.chdir("../seed-data")
 
 # load individual tables 
-Datasets = pd.read_csv("Datasets.csv")
+df = pd.read_csv("Datasets.csv")
 
 # Adds a demo user, you can add other users here if you want
 def seed_datasets():
-    # demo = User(
-    #     username='Demo', email='demo@aa.io', password='password')
-    # marnie = User(
-    #     username='marnie', email='marnie@aa.io', password='password')
-    # bobbie = User(
-    #     username='bobbie', email='bobbie@aa.io', password='password')
-
-    for index, row in Datasets.iterrows():
-    # print the values of each column for the current row
-        #print("Row ", index, ": ", row['Column1'], row['Column2'], row['Column3'])
+    for index, row in df.iterrows():
         if index == 0:
             continue
         datasets = Dataset(id = index, name=row['name'], date_modified = row['date_modified'])

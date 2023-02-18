@@ -1,6 +1,8 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .datasets import seed_datasets, undo_dataset
+from .packages import seed_packages, undo_packages
+from .dataset_package import seed_dataset_packages, undo_dataset_packages
 
 from app.models.db import db, environment, SCHEMA
 
@@ -13,7 +15,7 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
-    # db.create_all() #  uncomment this line if table not found erro
+    db.create_all() #  uncomment this line if table not found erro
     if environment == 'production':
         # Before seeding in production, you want to run the seed undo 
         # command, which will  truncate all tables prefixed with 
@@ -22,6 +24,8 @@ def seed():
         undo_users()
     seed_users()
     seed_datasets()
+    seed_packages()
+    seed_dataset_packages()
     # Add other seed functions here
 
 
@@ -30,4 +34,6 @@ def seed():
 def undo():
     undo_users()
     undo_dataset()
+    undo_packages()
+    undo_dataset_packages()
     # Add other undo functions here
