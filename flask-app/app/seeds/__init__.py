@@ -2,8 +2,7 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .datasets import seed_datasets, undo_dataset
 from .packages import seed_packages, undo_packages
-from .dataset_package import seed_dataset_packages, undo_dataset_packages
-
+from .add_data_tables import seed_tables, undo_seed_tables
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -25,7 +24,7 @@ def seed():
     seed_users()
     seed_datasets()
     seed_packages()
-    seed_dataset_packages()
+    seed_tables()
     # Add other seed functions here
 
 
@@ -35,5 +34,5 @@ def undo():
     undo_users()
     undo_dataset()
     undo_packages()
-    undo_dataset_packages()
+    undo_seed_tables()
     # Add other undo functions here
