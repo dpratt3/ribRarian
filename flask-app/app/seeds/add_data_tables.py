@@ -8,7 +8,7 @@ import pandas as pd
 
 # os.chdir("../seed-data/data-tables")
 file_names = os.listdir("../seed-data/data-tables/") # relative
-engine = create_engine("sqlite://")
+# engine = create_engine("sqlite://")
 
 # load individual tables
 
@@ -17,7 +17,7 @@ def seed_tables():
             try: 
                 df = pd.read_csv("../seed-data/data-tables/" + file_names[i])
                 table_name = file_names[i].split('.csv')[0]
-                df.to_sql(name=table_name, con=engine, index=False, if_exists='replace')
+                df.to_sql(name=table_name, con=db.engine, index=False, if_exists='replace')
                 print(table_name)
             except:
                 print('exception')
