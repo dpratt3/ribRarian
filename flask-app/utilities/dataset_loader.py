@@ -8,9 +8,9 @@ import pandas as pd
 os.chdir("../../seed-data1/")
 
 # load individual tables 
-DatasetPackages = pd.read_csv("../../seed-data/DatasetPackages.csv")
-Datasets = pd.read_csv("../../seed-data/Datasets.csv")
-Packages = pd.read_csv("../../seed-data/Packages.csv")
+DatasetPackages = pd.read_csv("atasetPackages.csv")
+Datasets = pd.read_csv("Datasets.csv")
+Packages = pd.read_csv("Packages.csv")
 
 # load datasets individually; visually verify
 
