@@ -4,10 +4,12 @@ from app.models import db, User, environment, SCHEMA, Dataset
 import os
 import pandas as pd
 
+
 os.chdir("../seed-data1")
 
+
 # load individual tables 
-df = pd.read_csv("Datasets.csv")
+df = pd.read_csv("../seed-data/Datasets.csv")
 
 # Adds a demo user, you can add other users here if you want
 def seed_datasets():

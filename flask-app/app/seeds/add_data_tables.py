@@ -6,8 +6,11 @@ import sqlite3
 import os
 import pandas as pd
 
+
 # os.chdir("../seed-data1/data-tables")
 file_names = os.listdir("../seed-data1/data-tables/") # relative
+
+
 # engine = create_engine("sqlite://")
 
 # load individual tables

@@ -8,9 +8,9 @@ import pandas as pd
 os.chdir("../../seed-data1/")
 
 # load individual tables 
-DatasetPackages = pd.read_csv("DatasetPackages.csv")
-Datasets = pd.read_csv("Datasets.csv")
-Packages = pd.read_csv("Packages.csv")
+DatasetPackages = pd.read_csv("../../seed-data/DatasetPackages.csv")
+Datasets = pd.read_csv("../../seed-data/Datasets.csv")
+Packages = pd.read_csv("../../seed-data/Packages.csv")
 
 # load datasets individually; visually verify
 
@@ -19,7 +19,7 @@ print(Datasets)
 print(Packages)
 
 # load all data tables 
-file_names = os.listdir("data-tables/") # relative
+file_names = os.listdir("../../seed-data/data-tables/") # relative
 os.chdir("./data-tables/")
 
 data_tables = []
