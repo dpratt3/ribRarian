@@ -66,3 +66,4 @@ __pycache__/
 # Ignore node modules
 node_modules
 
+*.db
