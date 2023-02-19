@@ -6,8 +6,11 @@ import sqlite3
 import os
 import pandas as pd
 
-# os.chdir("../seed-data/data-tables")
-file_names = os.listdir("../seed-data/data-tables/") # relative
+
+# os.chdir("../seed-data1/data-tables")
+file_names = os.listdir("../seed-data1/data-tables/") # relative
+
+
 # engine = create_engine("sqlite://")
 
 # load individual tables
@@ -15,7 +18,7 @@ file_names = os.listdir("../seed-data/data-tables/") # relative
 def seed_tables():
         for i in range(0, len(file_names)):
             try: 
-                df = pd.read_csv("../seed-data/data-tables/" + file_names[i])
+                df = pd.read_csv("../seed-data1/data-tables/" + file_names[i])
                 table_name = file_names[i].split('.csv')[0]
                 df.to_sql(name=table_name, con=db.engine, index=False, if_exists='replace')
                 print(table_name)

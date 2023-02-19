@@ -4,7 +4,9 @@ from app.models import db, User, environment, SCHEMA, Dataset
 import os
 import pandas as pd
 
-# os.chdir("../seed-data")
+
+os.chdir("../seed-data1")
+
 
 # load individual tables 
 df = pd.read_csv("../seed-data/Datasets.csv")

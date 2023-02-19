@@ -4,7 +4,7 @@
 # import os
 # import pandas as pd
 
-# os.chdir("../seed-data")
+# os.chdir("../seed-data1")
 
 
 # file_names = os.listdir("data-tables/") # relative

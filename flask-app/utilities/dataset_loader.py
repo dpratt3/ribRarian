@@ -5,7 +5,7 @@
 import os
 import pandas as pd
 
-# os.chdir("../../seed-data/")
+os.chdir("../../seed-data1/")
 
 # load individual tables 
 DatasetPackages = pd.read_csv("../../seed-data/DatasetPackages.csv")

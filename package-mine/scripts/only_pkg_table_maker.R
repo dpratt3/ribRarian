@@ -37,7 +37,7 @@ for(i in 1:length(only_pkgs)){
 date_modified = rep("2023-02-13", length(only_pkgs))
 linked_packages = cbind.data.frame(only_pkgs, links, date_modified)
 
-write.csv(linked_packages, "../../seed-data/Packages.csv", row.names = FALSE)
+write.csv(linked_packages, "../../seed-data1/Packages.csv", row.names = FALSE)
 
 
 
