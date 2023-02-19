@@ -48,8 +48,22 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+# R packages to ignore
 *.csv
 
 *.tar.gz
 
-*packages*
+uncompressed-R-packages
+
+# Python files to ignore
+.env
+__pycache__/
+*.py[cod]
+.venv
+.DS_Store
+.vscode/
+
+# Ignore node modules
+node_modules
+
+*.db
