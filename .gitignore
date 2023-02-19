@@ -49,7 +49,7 @@ po/*~
 rsconnect/
 
 # R packages to ignore
-*.csv
+# *.csv
 
 *.tar.gz
 

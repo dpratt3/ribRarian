@@ -1,0 +1,6 @@
+"color","size","points","edibility"
+"red","small","yes","toxic"
+"brown","small","no","edible"
+"brown","large","yes","edible"
+"green","small","no","edible"
+"red","large","no","edible"

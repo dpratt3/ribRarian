@@ -4,7 +4,7 @@ from app.models import db, User, environment, SCHEMA, Package
 import os
 import pandas as pd
 
-os.chdir("../seed-data")
+os.chdir("../seed-data1")
 
 # load individual tables 
 df = pd.read_csv("Packages.csv")

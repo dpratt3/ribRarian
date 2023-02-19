@@ -68,7 +68,7 @@ for(i in 1:length(titanic_pkgs)){
         tryCatch({
             path = paste0("../uncompressed-R-packages/", titanic_pkgs[[i]], "/data/titanic", t)
             data = load(file = path)
-            write.csv(titanic, paste0("../../seed-data/data-tables/", titanic_pkgs[[i]], "-titanic.csv"), row.names = FALSE)
+            write.csv(titanic, paste0("../../seed-data1/data-tables/", titanic_pkgs[[i]], "-titanic.csv"), row.names = FALSE)
         }, error = function(e){
             print(titanic_pkgs[[i]]) # inspect error
         })
@@ -81,7 +81,7 @@ for(i in 1:length(housing_pkgs)){
         tryCatch({
             path = paste0("../uncompressed-R-packages/", housing_pkgs[[i]], "/data/housing", t)
             data = load(file = path)
-            write.csv(housing, paste0("../../seed-data/data-tables/", housing_pkgs[[i]], "-housing.csv"), row.names = FALSE)
+            write.csv(housing, paste0("../../seed-data1/data-tables/", housing_pkgs[[i]], "-housing.csv"), row.names = FALSE)
         }, error = function(e){
             print(housing_pkgs[[i]]) # inspect error
         })
@@ -94,7 +94,7 @@ for(i in 1:length(mushroom_pkgs)){
         tryCatch({
             path = paste0("../uncompressed-R-packages/", mushroom_pkgs[[i]], "/data/mushroom", t)
             data = load(file = path)
-            write.csv(mushroom, paste0("../../seed-data/data-tables/", mushroom_pkgs[[i]], "-mushroom.csv"), row.names = FALSE)
+            write.csv(mushroom, paste0("../../seed-data1/data-tables/", mushroom_pkgs[[i]], "-mushroom.csv"), row.names = FALSE)
         }, error = function(e){
             print(mushroom_pkgs[[i]]) # inspect error
         })
