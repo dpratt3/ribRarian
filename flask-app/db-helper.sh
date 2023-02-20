@@ -8,5 +8,6 @@ rm ./instance/dev.db
 
 flask db init
 flask db migrate
+flask db stamp head
 flask db upgrade
 flask seed all
