@@ -10,4 +10,4 @@ tab <- html_nodes(pkgs, "table") %>% html_table(fill = TRUE)
 pkgnames <- tab[[1]][1]$X1
 pkgnames <- pkgnames[nchar(pkgnames)>0]
 
-sapply(pkgnames, download.packages, destdir = "~/git/app-academy/ribRarian/package-mine/compressed-R-packages")
+sapply(pkgnames, download.packages, destdir = "./package-mine/compressed-R-packages")
